@@ -14,6 +14,7 @@
 		FD7D0A4D28738EE1003F829A /* MarvyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A4C28738EE1003F829A /* MarvyTests.swift */; };
 		FD7D0A5728738EE1003F829A /* MarvyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A5628738EE1003F829A /* MarvyUITests.swift */; };
 		FD7D0A5928738EE1003F829A /* MarvyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A5828738EE1003F829A /* MarvyUITestsLaunchTests.swift */; };
+		FDD09D162879D25B00A9E7EB /* MarvelApi in Frameworks */ = {isa = PBXBuildFile; productRef = FDD09D152879D25B00A9E7EB /* MarvelApi */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		FD7D0A5228738EE1003F829A /* MarvyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7D0A5628738EE1003F829A /* MarvyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvyUITests.swift; sourceTree = "<group>"; };
 		FD7D0A5828738EE1003F829A /* MarvyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDD09D132879D1C900A9E7EB /* MarvelApi */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MarvelApi; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDD09D162879D25B00A9E7EB /* MarvelApi in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,10 +77,12 @@
 		FD7D0A2F28738EE0003F829A = {
 			isa = PBXGroup;
 			children = (
+				FDD09D132879D1C900A9E7EB /* MarvelApi */,
 				FD7D0A3A28738EE1003F829A /* Marvy */,
 				FD7D0A4B28738EE1003F829A /* MarvyTests */,
 				FD7D0A5528738EE1003F829A /* MarvyUITests */,
 				FD7D0A3928738EE1003F829A /* Products */,
+				FDD09D142879D25B00A9E7EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +132,13 @@
 			path = MarvyUITests;
 			sourceTree = "<group>";
 		};
+		FDD09D142879D25B00A9E7EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +155,9 @@
 			dependencies = (
 			);
 			name = Marvy;
+			packageProductDependencies = (
+				FDD09D152879D25B00A9E7EB /* MarvelApi */,
+			);
 			productName = Marvy;
 			productReference = FD7D0A3828738EE1003F829A /* Marvy.app */;
 			productType = "com.apple.product-type.application";
@@ -577,6 +592,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FDD09D152879D25B00A9E7EB /* MarvelApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MarvelApi;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FD7D0A3028738EE0003F829A /* Project object */;
 }
