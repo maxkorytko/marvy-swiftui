@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD7D0A3C28738EE1003F829A /* MarvyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A3B28738EE1003F829A /* MarvyApp.swift */; };
-		FD7D0A3E28738EE1003F829A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A3D28738EE1003F829A /* ContentView.swift */; };
+		FD7D0A3E28738EE1003F829A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A3D28738EE1003F829A /* Home.swift */; };
 		FD7D0A4028738EE1003F829A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD7D0A3F28738EE1003F829A /* Assets.xcassets */; };
 		FD7D0A4328738EE1003F829A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD7D0A4228738EE1003F829A /* Preview Assets.xcassets */; };
 		FD7D0A4D28738EE1003F829A /* MarvyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A4C28738EE1003F829A /* MarvyTests.swift */; };
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		FD7D0A3828738EE1003F829A /* Marvy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7D0A3B28738EE1003F829A /* MarvyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvyApp.swift; sourceTree = "<group>"; };
-		FD7D0A3D28738EE1003F829A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FD7D0A3D28738EE1003F829A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		FD7D0A3F28738EE1003F829A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD7D0A4228738EE1003F829A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FD7D0A4828738EE1003F829A /* MarvyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,8 +99,8 @@
 		FD7D0A3A28738EE1003F829A /* Marvy */ = {
 			isa = PBXGroup;
 			children = (
+				FDD09D172879EC8F00A9E7EB /* Views */,
 				FD7D0A3B28738EE1003F829A /* MarvyApp.swift */,
-				FD7D0A3D28738EE1003F829A /* ContentView.swift */,
 				FD7D0A3F28738EE1003F829A /* Assets.xcassets */,
 				FD7D0A4128738EE1003F829A /* Preview Content */,
 			);
@@ -137,6 +137,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDD09D172879EC8F00A9E7EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD7D0A3D28738EE1003F829A /* Home.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD7D0A3E28738EE1003F829A /* ContentView.swift in Sources */,
+				FD7D0A3E28738EE1003F829A /* Home.swift in Sources */,
 				FD7D0A3C28738EE1003F829A /* MarvyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
