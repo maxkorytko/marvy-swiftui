@@ -1,6 +1,8 @@
 public struct MarvelApi {
-    public private(set) var text = "Hello, World!"
-
     public init() {
+    }
+
+    public func fetchCharacters() async -> CharacterDataWrapper {
+        .init(data: .init(results: []))
     }
 }

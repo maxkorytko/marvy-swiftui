@@ -9,8 +9,17 @@ import MarvelApi
 import SwiftUI
 
 struct Home: View {
+    let api = MarvelApi()
+
     var body: some View {
         Text("Marvy")
+            .task {
+                fetchCharacters()
+            }
+    }
+
+    private func fetchCharacters() {
+
     }
 }
 
