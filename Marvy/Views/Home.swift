@@ -14,12 +14,12 @@ struct Home: View {
     var body: some View {
         Text("Marvy")
             .task {
-                fetchCharacters()
+                await fetchCharacters()
             }
     }
 
-    private func fetchCharacters() {
-
+    private func fetchCharacters() async {
+        let characters = try? await api.fetchCharacters()
     }
 }
 

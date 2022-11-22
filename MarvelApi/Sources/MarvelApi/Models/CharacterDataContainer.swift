@@ -1,3 +1,3 @@
-public struct CharacterDataContainer {
+public struct CharacterDataContainer: Decodable {
     public let results: [Character]?
 }

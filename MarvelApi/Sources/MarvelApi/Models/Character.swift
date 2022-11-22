@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MarvelCharacter {
+public struct Character: Decodable {
     public let id: Int?
     public let name: String?
 }
