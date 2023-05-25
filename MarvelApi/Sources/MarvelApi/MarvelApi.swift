@@ -32,7 +32,7 @@ public struct MarvelApi {
         self.urlSession = URLSession(configuration: .default)
     }
 
-    public func fetchCharacters() async throws -> CharacterDataWrapper {
+    public func fetchCharacters() async throws -> DataWrapper<Character> {
         try await makeApiRequest(endpoint: "characters")
     }
 

@@ -20,6 +20,7 @@ struct Home: View {
 
     private func fetchCharacters() async {
         let characters = try? await api.fetchCharacters()
+        print(characters)
     }
 }
 
