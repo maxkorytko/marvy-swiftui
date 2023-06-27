@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD55BA062A4A61E700B0B8F5 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55BA052A4A61E700B0B8F5 /* ApiClient.swift */; };
+		FD55BA082A4A69D600B0B8F5 /* CharactersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55BA072A4A69D600B0B8F5 /* CharactersList.swift */; };
+		FD55BA0A2A4A6BE200B0B8F5 /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD55BA092A4A6BE200B0B8F5 /* LoadableView.swift */; };
+		FD55BA152A4BC81C00B0B8F5 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = FD55BA142A4BC81C00B0B8F5 /* characters.json */; };
 		FD7D0A3C28738EE1003F829A /* MarvyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A3B28738EE1003F829A /* MarvyApp.swift */; };
 		FD7D0A3E28738EE1003F829A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A3D28738EE1003F829A /* Home.swift */; };
 		FD7D0A4028738EE1003F829A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD7D0A3F28738EE1003F829A /* Assets.xcassets */; };
@@ -14,7 +18,10 @@
 		FD7D0A4D28738EE1003F829A /* MarvyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A4C28738EE1003F829A /* MarvyTests.swift */; };
 		FD7D0A5728738EE1003F829A /* MarvyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A5628738EE1003F829A /* MarvyUITests.swift */; };
 		FD7D0A5928738EE1003F829A /* MarvyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A5828738EE1003F829A /* MarvyUITestsLaunchTests.swift */; };
+		FDBCDEC82A1EE7C200EFDEB0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = FDBCDEC72A1EE7C200EFDEB0 /* ComposableArchitecture */; };
+		FDBCDECA2A1EE94F00EFDEB0 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBCDEC92A1EE94F00EFDEB0 /* CharactersView.swift */; };
 		FDD09D162879D25B00A9E7EB /* MarvelApi in Frameworks */ = {isa = PBXBuildFile; productRef = FDD09D152879D25B00A9E7EB /* MarvelApi */; };
+		FDE51CF12A45187D000278BB /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE51CF02A45187D000278BB /* Loadable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD55BA052A4A61E700B0B8F5 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		FD55BA072A4A69D600B0B8F5 /* CharactersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersList.swift; sourceTree = "<group>"; };
+		FD55BA092A4A6BE200B0B8F5 /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
+		FD55BA142A4BC81C00B0B8F5 /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = characters.json; path = Data/characters.json; sourceTree = "<group>"; };
 		FD7D0A3828738EE1003F829A /* Marvy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7D0A3B28738EE1003F829A /* MarvyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvyApp.swift; sourceTree = "<group>"; };
 		FD7D0A3D28738EE1003F829A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -45,7 +56,9 @@
 		FD7D0A5228738EE1003F829A /* MarvyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7D0A5628738EE1003F829A /* MarvyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvyUITests.swift; sourceTree = "<group>"; };
 		FD7D0A5828738EE1003F829A /* MarvyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDBCDEC92A1EE94F00EFDEB0 /* CharactersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersView.swift; sourceTree = "<group>"; };
 		FDD09D132879D1C900A9E7EB /* MarvelApi */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MarvelApi; sourceTree = "<group>"; };
+		FDE51CF02A45187D000278BB /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDBCDEC82A1EE7C200EFDEB0 /* ComposableArchitecture in Frameworks */,
 				FDD09D162879D25B00A9E7EB /* MarvelApi in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +113,7 @@
 		FD7D0A3A28738EE1003F829A /* Marvy */ = {
 			isa = PBXGroup;
 			children = (
+				FDE51CEF2A451869000278BB /* Model */,
 				FDD09D172879EC8F00A9E7EB /* Views */,
 				FD7D0A3B28738EE1003F829A /* MarvyApp.swift */,
 				FD7D0A3F28738EE1003F829A /* Assets.xcassets */,
@@ -110,6 +125,7 @@
 		FD7D0A4128738EE1003F829A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				FD55BA142A4BC81C00B0B8F5 /* characters.json */,
 				FD7D0A4228738EE1003F829A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -143,8 +159,20 @@
 			isa = PBXGroup;
 			children = (
 				FD7D0A3D28738EE1003F829A /* Home.swift */,
+				FDBCDEC92A1EE94F00EFDEB0 /* CharactersView.swift */,
+				FD55BA072A4A69D600B0B8F5 /* CharactersList.swift */,
+				FD55BA092A4A6BE200B0B8F5 /* LoadableView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FDE51CEF2A451869000278BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDE51CF02A45187D000278BB /* Loadable.swift */,
+				FD55BA052A4A61E700B0B8F5 /* ApiClient.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +193,7 @@
 			name = Marvy;
 			packageProductDependencies = (
 				FDD09D152879D25B00A9E7EB /* MarvelApi */,
+				FDBCDEC72A1EE7C200EFDEB0 /* ComposableArchitecture */,
 			);
 			productName = Marvy;
 			productReference = FD7D0A3828738EE1003F829A /* Marvy.app */;
@@ -238,6 +267,9 @@
 				Base,
 			);
 			mainGroup = FD7D0A2F28738EE0003F829A;
+			packageReferences = (
+				FDBCDEC62A1EE7C200EFDEB0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = FD7D0A3928738EE1003F829A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -254,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD55BA152A4BC81C00B0B8F5 /* characters.json in Resources */,
 				FD7D0A4328738EE1003F829A /* Preview Assets.xcassets in Resources */,
 				FD7D0A4028738EE1003F829A /* Assets.xcassets in Resources */,
 			);
@@ -281,7 +314,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD7D0A3E28738EE1003F829A /* Home.swift in Sources */,
+				FD55BA082A4A69D600B0B8F5 /* CharactersList.swift in Sources */,
+				FDE51CF12A45187D000278BB /* Loadable.swift in Sources */,
 				FD7D0A3C28738EE1003F829A /* MarvyApp.swift in Sources */,
+				FDBCDECA2A1EE94F00EFDEB0 /* CharactersView.swift in Sources */,
+				FD55BA0A2A4A6BE200B0B8F5 /* LoadableView.swift in Sources */,
+				FD55BA062A4A61E700B0B8F5 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,7 +639,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		FDBCDEC62A1EE7C200EFDEB0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.52.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		FDBCDEC72A1EE7C200EFDEB0 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDBCDEC62A1EE7C200EFDEB0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		FDD09D152879D25B00A9E7EB /* MarvelApi */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MarvelApi;

@@ -1,6 +1,8 @@
 import Foundation
 
-public struct Character: Decodable {
+public typealias Characters = DataWrapper<Character>
+
+public struct Character: ApiResource {
     public let id: Int?
     public let name: String?
 }

@@ -1,9 +1,11 @@
 import Foundation
 
-public struct DataWrapper<T: Decodable>: Decodable {
+public protocol ApiResource: Equatable, Decodable { }
+
+public struct DataWrapper<T: ApiResource>: ApiResource {
     public let data: DataContainer<T>?
 }
 
-public struct DataContainer<T: Decodable>: Decodable {
+public struct DataContainer<T: ApiResource>: ApiResource {
     public let results: [T]?
 }
