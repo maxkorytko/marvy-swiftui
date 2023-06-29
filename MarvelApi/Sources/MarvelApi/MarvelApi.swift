@@ -1,17 +1,17 @@
 import CryptoKit
 import Foundation
 
-public struct MarvelApi {
-    public struct Credentials {
-        public let publicKey: String
-        public let privateKey: String
-    }
+public struct ApiCredentials {
+    public let publicKey: String
+    public let privateKey: String
+}
 
+public struct MarvelApiClient {
     enum Error: Swift.Error {
         case invalidRequest
     }
 
-    private let credentials: Credentials
+    private let credentials: ApiCredentials
 
     private let urlSession: URLSession
 
@@ -27,7 +27,7 @@ public struct MarvelApi {
         self.init(credentials: .init(publicKey: publicKey, privateKey: privateKey))
     }
 
-    public init(credentials: Credentials) {
+    public init(credentials: ApiCredentials) {
         self.credentials = credentials
         self.urlSession = URLSession(configuration: .default)
     }
@@ -52,13 +52,13 @@ struct Endpoint: ExpressibleByStringLiteral {
 }
 
 struct ApiRequest {
-    let credentials: MarvelApi.Credentials
+    let credentials: ApiCredentials
 
     let endpoint: Endpoint
 
     let urlRequest: URLRequest?
 
-    init(credentials: MarvelApi.Credentials, endpoint: Endpoint) {
+    init(credentials: ApiCredentials, endpoint: Endpoint) {
         self.credentials = credentials
         self.endpoint = endpoint
 
@@ -93,7 +93,7 @@ struct ApiRequest {
 extension URLSession {
     func data(for apiRequest: ApiRequest) async throws -> (Data, URLResponse) {
         guard let urlRequest = apiRequest.urlRequest else {
-            throw MarvelApi.Error.invalidRequest
+            throw MarvelApiClient.Error.invalidRequest
         }
 
         return try await data(for: urlRequest)

@@ -44,7 +44,7 @@ struct CharactersView: View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             VStack {
                 LoadableView(viewStore.characters) {
-                    CharactersList(characters: $0)
+                    CharactersList(characters: $0.data?.results ?? [])
                 }
             }
             .task {

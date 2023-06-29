@@ -6,9 +6,9 @@ protocol ApiClient {
     func fetchCharacters() async throws -> Characters
 }
 
-extension MarvelApi: ApiClient { }
+extension MarvelApiClient: ApiClient { }
 
-struct ApiClientStub: ApiClient {
+struct MarvelApiClientStub: ApiClient {
     private static let jsonDecoder: JSONDecoder = .init()
 
     private func parseJsonFile<T: Decodable>(name: String) throws -> T {
@@ -31,8 +31,8 @@ struct ApiClientStub: ApiClient {
 // MARK: - Dependency Injection
 
 private enum ApiClientDependencyKey: DependencyKey {
-    static let liveValue: ApiClient = MarvelApi()
-    static let previewValue: ApiClient = ApiClientStub()
+    static let liveValue: ApiClient = MarvelApiClient()
+    static let previewValue: ApiClient = MarvelApiClientStub()
 }
 
 extension DependencyValues {
