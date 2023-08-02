@@ -44,7 +44,8 @@ struct Thumbnail: View {
 
     var body: some View {
         Rectangle()
+            .fill(Color.red)
+            .cornerRadius(5)
             .frame(width: 50, height: 50)
-            .background(Color.red)
     }
 }

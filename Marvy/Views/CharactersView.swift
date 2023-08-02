@@ -2,7 +2,7 @@ import ComposableArchitecture
 import MarvelApi
 import SwiftUI
 
-struct CharactersFeature: ReducerProtocol {
+struct CharactersFeature: Reducer {
     struct State: Equatable {
         var characters: Loadable<Characters>?
     }
@@ -14,7 +14,7 @@ struct CharactersFeature: ReducerProtocol {
 
     @Dependency(\.apiClient) private var apiClient
 
-    func reduce(into state: inout State, action: Action) -> ComposableArchitecture.EffectTask<Action> {
+    func reduce(into state: inout State, action: Action) -> ComposableArchitecture.Effect<Action> {
         switch action {
         case .fetchCharacters:
             state.characters = .loading
@@ -25,7 +25,7 @@ struct CharactersFeature: ReducerProtocol {
         }
     }
 
-    private func fetchCharacters() -> ComposableArchitecture.EffectTask<Action> {
+    private func fetchCharacters() -> ComposableArchitecture.Effect<Action> {
         return .run { send in
             do {
                 let characters = try await apiClient.fetchCharacters()
@@ -56,7 +56,9 @@ struct CharactersView: View {
 
 extension CharactersView {
     init() {
-        self.init(store: Store(initialState: .init(), reducer: CharactersFeature()))
+        self.init(store: Store(initialState: .init(), reducer: {
+            CharactersFeature()
+        }))
     }
 }
 
