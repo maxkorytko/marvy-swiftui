@@ -12,9 +12,11 @@ struct CharactersList: View {
         if characters.isEmpty == false {
             List(characters, id:\.uuid) { character in
                 CharacterView(character: character)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
-            .listRowSeparator(.hidden)
+            .foregroundColor(.white)
         }
 
         if characters.isEmpty {
@@ -27,14 +29,22 @@ struct CharacterView: View {
     let character: Character
 
     var body: some View {
-        HStack {
-            if let thumbnail = character.thumbnail {
-                Thumbnail(image: thumbnail)
-            }
+        ZStack(alignment: .leading) {
+            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                .fill(.black.opacity(0.5))
 
-            if let name = character.name {
-                Text(name)
+            HStack {
+                if let thumbnail = character.thumbnail {
+                    Thumbnail(image: thumbnail)
+                        .frame(width: 100, height: 150)
+                }
+
+                if let name = character.name {
+                    Text(name)
+                }
             }
+            .frame(height: 100)
+            .padding()
         }
     }
 }
@@ -43,9 +53,18 @@ struct Thumbnail: View {
     let image: MarvelApi.Image
 
     var body: some View {
-        Rectangle()
-            .fill(Color.red)
-            .cornerRadius(5)
-            .frame(width: 50, height: 50)
+        GeometryReader { proxy in
+            AsyncImage(url: image.url(size: proxy.size))
+        }
+    }
+}
+
+// MARK: - Previews
+
+struct CharactersList_Previews: PreviewProvider {
+    static var previews: some View {
+        CharactersList(characters: [
+            Character(name: "Spider-Man", thumbnail: .init(path: "spider-man"))
+        ])
     }
 }

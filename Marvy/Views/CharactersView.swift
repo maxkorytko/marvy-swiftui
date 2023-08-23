@@ -50,6 +50,8 @@ struct CharactersView: View {
             .task {
                 await viewStore.send(.fetchCharacters).finish()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.blue)
         }
     }
 }
@@ -61,6 +63,8 @@ extension CharactersView {
         }))
     }
 }
+
+// MARK: - Previews
 
 struct CharactersView_Previews: PreviewProvider {
     static var previews: some View {

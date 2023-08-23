@@ -14,3 +14,9 @@ public struct Character: ApiResource {
     public let thumbnail: Image?
     public let uuid: UUID = .init()
 }
+
+extension Character {
+    public init(name: String?, thumbnail: Image) {
+        self.init(id: nil, name: name, thumbnail: thumbnail)
+    }
+}
