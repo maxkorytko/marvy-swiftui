@@ -29,8 +29,13 @@ extension Image {
         case portraitXLarge = "portrait_xlarge"
         case landscapeSmall = "landscape_small"
         case landscapeLarge = "landscape_large"
+        case landscapeIncredible = "landscape_incredible"
 
-        var size: CGSize {
+        public var aspectRatio: CGFloat {
+            size.aspectRatio
+        }
+
+        public var size: CGSize {
             switch self {
             case .portraitSmall:
                 return CGSize(width: 50, height: 75)
@@ -42,6 +47,8 @@ extension Image {
                 return CGSize(width: 120, height: 90)
             case .landscapeLarge:
                 return CGSize(width: 190, height: 140)
+            case .landscapeIncredible:
+                return CGSize(width: 464, height: 261)
             }
         }
 
