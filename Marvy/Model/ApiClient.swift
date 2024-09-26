@@ -1,13 +1,19 @@
-import MarvelApi
+import Dependencies
 import Foundation
+import MarvelApi
 
-protocol ApiClient {
-    func fetchCharacters() async throws -> Characters
+final class Api: DependencyKey {
+    static public var liveValue: Api = .init(client: MarvelApiClient())
+    static public var previewValue: Api = .init(client: MarvelApiClientStub())
+
+    let client: MarvelApiClientType
+
+    init(client: MarvelApiClientType) {
+        self.client = client
+    }
 }
 
-extension MarvelApiClient: ApiClient { }
-
-struct MarvelApiClientStub: ApiClient {
+private struct MarvelApiClientStub: MarvelApiClientType {
     private static let jsonDecoder: JSONDecoder = .init()
 
     private func parseJsonFile<T: Decodable>(name: String) throws -> T {

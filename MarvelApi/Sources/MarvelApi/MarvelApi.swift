@@ -6,6 +6,10 @@ public struct ApiCredentials {
     public let privateKey: String
 }
 
+public protocol MarvelApiClientType {
+    func fetchCharacters() async throws -> Characters
+}
+
 public struct MarvelApiClient {
     enum Error: Swift.Error {
         case invalidRequest
@@ -32,14 +36,16 @@ public struct MarvelApiClient {
         self.urlSession = URLSession(configuration: .default)
     }
 
-    public func fetchCharacters() async throws -> Characters {
-        try await makeApiRequest(endpoint: "characters")
-    }
-
     private func makeApiRequest<T: Decodable>(endpoint: Endpoint) async throws -> T {
         let (data, _) = try await urlSession.data(for: ApiRequest(credentials: credentials, endpoint: endpoint))
 
         return try jsonDecoder.decode(T.self, from: data)
+    }
+}
+
+extension MarvelApiClient: MarvelApiClientType {
+    public func fetchCharacters() async throws -> Characters {
+        try await makeApiRequest(endpoint: "characters")
     }
 }
 

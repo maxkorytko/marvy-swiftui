@@ -18,6 +18,7 @@
 		FD7D0A4D28738EE1003F829A /* MarvyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A4C28738EE1003F829A /* MarvyTests.swift */; };
 		FD7D0A5728738EE1003F829A /* MarvyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A5628738EE1003F829A /* MarvyUITests.swift */; };
 		FD7D0A5928738EE1003F829A /* MarvyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D0A5828738EE1003F829A /* MarvyUITestsLaunchTests.swift */; };
+		FD9A61BA2CA4E92000D2DFC5 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = FD9A61B92CA4E92000D2DFC5 /* Dependencies */; };
 		FDA7C6B32A96E3D6006D1733 /* MarvelSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FDA7C6B22A96E3D6006D1733 /* MarvelSwiftUI */; };
 		FDA7C6B52A96E41E006D1733 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7C6B42A96E41E006D1733 /* CharacterView.swift */; };
 		FDA7C6B72A96E641006D1733 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA7C6B62A96E641006D1733 /* PreviewData.swift */; };
@@ -70,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD9A61BA2CA4E92000D2DFC5 /* Dependencies in Frameworks */,
 				FDD09D162879D25B00A9E7EB /* MarvelApi in Frameworks */,
 				FDA7C6B32A96E3D6006D1733 /* MarvelSwiftUI in Frameworks */,
 			);
@@ -208,6 +210,7 @@
 			packageProductDependencies = (
 				FDD09D152879D25B00A9E7EB /* MarvelApi */,
 				FDA7C6B22A96E3D6006D1733 /* MarvelSwiftUI */,
+				FD9A61B92CA4E92000D2DFC5 /* Dependencies */,
 			);
 			productName = Marvy;
 			productReference = FD7D0A3828738EE1003F829A /* Marvy.app */;
@@ -282,6 +285,7 @@
 			);
 			mainGroup = FD7D0A2F28738EE0003F829A;
 			packageReferences = (
+				FD9A61B82CA4E7A200D2DFC5 /* XCRemoteSwiftPackageReference "swift-dependencies" */,
 			);
 			productRefGroup = FD7D0A3928738EE1003F829A /* Products */;
 			projectDirPath = "";
@@ -654,7 +658,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		FD9A61B82CA4E7A200D2DFC5 /* XCRemoteSwiftPackageReference "swift-dependencies" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-dependencies.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		FD9A61B92CA4E92000D2DFC5 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD9A61B82CA4E7A200D2DFC5 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = Dependencies;
+		};
 		FDA7C6B22A96E3D6006D1733 /* MarvelSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MarvelSwiftUI;
