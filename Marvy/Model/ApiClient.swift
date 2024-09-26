@@ -1,4 +1,3 @@
-import Dependencies
 import MarvelApi
 import Foundation
 
@@ -26,18 +25,4 @@ struct MarvelApiClientStub: ApiClient {
     func fetchCharacters() async throws -> Characters {
         try parseJsonFile(name: "characters")
     }
-}
-
-// MARK: - Dependency Injection
-
-private enum ApiClientDependencyKey: DependencyKey {
-    static let liveValue: ApiClient = MarvelApiClient()
-    static let previewValue: ApiClient = MarvelApiClientStub()
-}
-
-extension DependencyValues {
-  var apiClient: ApiClient {
-    get { self[ApiClientDependencyKey.self] }
-    set { self[ApiClientDependencyKey.self] = newValue }
-  }
 }
