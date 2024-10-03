@@ -2,7 +2,6 @@ import Foundation
 
 enum Loadable<T> {
     case loading
-    case loaded(T)
+    case success(T)
+    case error(Error)
 }
-
-extension Loadable: Equatable where T: Equatable { }
