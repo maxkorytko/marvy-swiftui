@@ -28,7 +28,7 @@ private struct MarvelApiClientStub: MarvelApiClientType {
         return try Self.jsonDecoder.decode(T.self, from: data)
     }
 
-    func fetchCharacters() async throws -> Characters {
+    func fetchCharacters(pagination: Pagination?) async throws -> Characters {
         try parseJsonFile(name: "characters")
     }
 }

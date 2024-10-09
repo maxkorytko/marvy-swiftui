@@ -38,7 +38,9 @@ enum LoadableCharacter: Identifiable {
         }
 
         do {
-            let characters = try await api.client.fetchCharacters()
+            let characters = try await api.client.fetchCharacters(
+                pagination: .init(page: 1, pageSize: 20)
+            )
             self.state = state.update(
                 characters: characters.data?.results?.map { character in
                     .character(character)

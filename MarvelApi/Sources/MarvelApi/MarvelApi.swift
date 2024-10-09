@@ -7,7 +7,7 @@ public struct ApiCredentials {
 }
 
 public protocol MarvelApiClientType {
-    func fetchCharacters() async throws -> Characters
+    func fetchCharacters(pagination: Pagination?) async throws -> Characters
 }
 
 public struct MarvelApiClient {
@@ -36,24 +36,34 @@ public struct MarvelApiClient {
         self.urlSession = URLSession(configuration: .default)
     }
 
-    private func makeApiRequest<T: Decodable>(endpoint: Endpoint) async throws -> T {
+    func makeApiRequest<T: Decodable>(endpoint: Endpoint) async throws -> T {
         let (data, _) = try await urlSession.data(for: ApiRequest(credentials: credentials, endpoint: endpoint))
 
         return try jsonDecoder.decode(T.self, from: data)
     }
 }
 
-extension MarvelApiClient: MarvelApiClientType {
-    public func fetchCharacters() async throws -> Characters {
-        try await makeApiRequest(endpoint: "characters")
-    }
-}
-
 struct Endpoint: ExpressibleByStringLiteral {
+    typealias QueryParams = [String: String]
+
     let path: String
+    let queryParams: QueryParams
+
+    init(path: String, queryParams: QueryParams) {
+        self.path = path
+        self.queryParams = queryParams
+    }
 
     init(stringLiteral value: StringLiteralType) {
         self.path = value
+        self.queryParams = [:]
+    }
+
+    func append(queryParams: QueryParams) -> Self {
+        Self(
+            path: path,
+            queryParams: self.queryParams.merging(queryParams) { $1 }
+        )
     }
 }
 
@@ -86,7 +96,7 @@ struct ApiRequest {
                     .init(name: "ts", value: "\(nonce)"),
                     .init(name: "apikey", value: credentials.publicKey),
                     .init(name: "hash", value: hash)
-                ]
+                ] + endpoint.queryParams.map(URLQueryItem.init(name:value:))
 
                 return components.url
             }
