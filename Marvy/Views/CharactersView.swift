@@ -20,34 +20,72 @@ enum LoadableCharacter: Identifiable {
 @Observable @MainActor final class CharactersViewModel {
     struct State {
         let characters: [LoadableCharacter]?
+        let currentPage: Int
+        let isLoading: Bool
 
-        func update(characters: [LoadableCharacter]?) -> Self {
-            Self(characters: characters)
+        func update(
+            characters: [LoadableCharacter]?,
+            currentPage: Int,
+            isLoading: Bool
+        ) -> Self {
+            Self(
+                characters: characters,
+                currentPage: currentPage,
+                isLoading: isLoading
+            )
         }
     }
 
     @ObservationIgnored @Dependency(Api.self) private var api
     
     private(set) var state: State = .init(
-        characters: nil
+        characters: nil,
+        currentPage: 0,
+        isLoading: false
     )
 
     func fetchCharacters() async {
+        guard !state.isLoading else { return }
+
         if state.characters == nil {
-            state = state.update(characters: (1..<10).map { _ in .loading(id: UUID()) })
+            state = state.update(
+                characters: (1..<10).map { _ in .loading(id: UUID()) },
+                currentPage: state.currentPage,
+                isLoading: true
+            )
+        } else {
+            state = state.update(
+                characters: state.characters,
+                currentPage: state.currentPage,
+                isLoading: true
+            )
         }
 
         do {
             let characters = try await api.client.fetchCharacters(
-                pagination: .init(page: 1, pageSize: 20)
+                pagination: .init(page: state.currentPage, pageSize: 20)
             )
             self.state = state.update(
-                characters: characters.data?.results?.map { character in
-                    .character(character)
-                }
+                characters: {
+                    let fetchedCharacters = characters.data?.results?.map { character in
+                        LoadableCharacter.character(character)
+                    } ?? []
+
+                    return if let characters = state.characters, state.currentPage > 0 {
+                        characters + fetchedCharacters
+                    } else {
+                        fetchedCharacters
+                    }
+                }(),
+                currentPage: state.currentPage + 1,
+                isLoading: false
             )
         } catch {
-            self.state = state.update(characters: [])
+            self.state = state.update(
+                characters: state.characters == nil ? [] : state.characters,
+                currentPage: state.currentPage,
+                isLoading: false
+            )
         }
     }
 }
@@ -59,8 +97,17 @@ struct CharactersView: View {
     var body: some View {
         ZStack {
             if let characters = viewModel.state.characters {
-                List(characters) { character in
-                    CharacterRow(character: character)
+                List {
+                    ForEach(characters) { character in
+                        CharacterRow(character: character)
+                    }
+                    
+                    if viewModel.state.currentPage > 0 {
+                        Text("Loading")
+                            .task {
+                                await viewModel.fetchCharacters()
+                            }
+                    }
                 }
             }
         }
